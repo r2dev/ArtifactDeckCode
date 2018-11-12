@@ -1,0 +1,30 @@
+<html>
+  <body>
+    <div style="display: flex; align-items: center;">
+      <input type="text" id="input" style="flex: 1;" />
+      <div>
+        <button type="button" id="button1">>></button>
+        <button type="button" id="button2"><<</button>
+      </div>
+      <textarea id="textarea" style="flex: 1; height:60vh"></textarea>
+    </div>
+  </body>
+  <script src="./artifact.js"></script>
+  <script>
+    const artifact = new Artifact();
+    const inputElement = document.getElementById("input");
+    const textElement = document.getElementById("textarea");
+    const button1Element = document.getElementById("button1");
+    const button2Element = document.getElementById("button2");
+    button1Element.addEventListener("click", e => {
+      const value = inputElement.value;
+      const result = artifact.parseDeck(value);
+      if (result) textElement.value = JSON.stringify(result, null, 4);
+    });
+    button2Element.addEventListener("click", e => {
+      const value = textElement.value;
+      const result = artifact.encodeDeck(JSON.parse(value));
+      if (result) inputElement.value = result;
+    });
+  </script>
+</html>

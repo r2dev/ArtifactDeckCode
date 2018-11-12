@@ -1,0 +1,10 @@
+USAGE:
+
+```javascript
+
+    const artifact = new Artifact();
+    const decodeResult = artifact.parseDeck("ADCJWkTZX05uwGDCRV4XQGy3QGLmqUBg4GQJgGLGgO7AaABR3JlZW4vQmxhY2sgRXhhbXBsZQ__";
+    console.log(decodeResult);
+    console.log(artifact.encodeDeck(decodeResult));
+
+```
